@@ -21,15 +21,13 @@ class Solution:
             print(current.data,end=' ')
             current = current.next
 
-    def removeDuplicates(self, head, position):
-        if position == 0:
-            return head.next
-    
+    def removeDuplicates(self, head):
         current = head
-        for _ in range(position - 1):
-            current = current.next
-    
-        current.next = current.next.next
+        while current and current.next:
+            if current.data == current.next.data:
+                current.next = current.next.next
+            else:
+                current = current.next
         return head
 
 mylist= Solution()
